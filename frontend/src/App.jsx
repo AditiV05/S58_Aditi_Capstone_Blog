@@ -21,7 +21,7 @@ import Settings from "./pages/Settings";
 import VerifyEmail from "./pages/VerifyEmail";
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
-import Footer from "./components/Footer";
+// import Footer from "./components/Footer";
 
 function Layout() {
   const location = useLocation();
@@ -66,7 +66,7 @@ function Layout() {
           <Route path="/reset-password/:token" element={<ResetPassword />} />
         </Routes>
       </main>
-      {!hideChrome && <Footer />}
+      {/* {!hideChrome && <Footer />} */}
     </div>
   );
 }
