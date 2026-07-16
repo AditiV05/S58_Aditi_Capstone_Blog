@@ -3,6 +3,7 @@ import axios from "axios";
 import InfiniteScroll from "react-infinite-scroll-component";
 import ArticleCard from "../components/ArticleCard";
 import { API_URL } from "../config";
+import { isLoggedIn } from "../utils/auth";
 import "./Home.css";
 
 const Home = () => {
@@ -36,6 +37,16 @@ const Home = () => {
 
   return (
     <div className="home-container">
+      {!isLoggedIn() && (
+        <header className="home-masthead">
+          <h1 className="masthead-title">
+            A quiet place to read, write, and think out loud.
+          </h1>
+          <p className="masthead-sub">
+            Stories from writers on any topic that matters.
+          </p>
+        </header>
+      )}
       <div className="feed">
         <InfiniteScroll
           dataLength={articles.length}
