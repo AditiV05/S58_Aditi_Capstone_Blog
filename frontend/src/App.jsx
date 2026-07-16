@@ -21,49 +21,53 @@ import Settings from "./pages/Settings";
 import VerifyEmail from "./pages/VerifyEmail";
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
+import Footer from "./components/Footer";
 
 function Layout() {
   const location = useLocation();
-  const hideNavbar =
+  const hideChrome =
     ["/login", "/signup", "/forgot-password"].includes(location.pathname) ||
     location.pathname.startsWith("/reset-password");
 
   return (
-    <>
-      {!hideNavbar && <Navbar />}
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/article/:id" element={<Article />} />
-        <Route path="/profile/:username" element={<Profile />} />
-        <Route path="/profile/:id/" element={<Profile />} />
-        <Route path="/search" element={<SearchResults />} />
-        <Route
-          path="/write"
-          element={
-            <PrivateRoute>
-              <Writer />
-            </PrivateRoute>
-          }
-        />
-        <Route
-          path="/edit/:id"
-          element={
-            <PrivateRoute>
-              <EditArticle />
-            </PrivateRoute>
-          }
-        />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/google-success" element={<GoogleSuccess />} />
-        <Route path="/saved" element={<Saved />} />
-        <Route path="/edit-profile" element={<EditProfile />} />
-        <Route path="/settings" element={<Settings />} />
-        <Route path="/verify/:token" element={<VerifyEmail />} />
-        <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/reset-password/:token" element={<ResetPassword />} />
-      </Routes>
-    </>
+    <div className="app-shell">
+      {!hideChrome && <Navbar />}
+      <main className="app-main">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/article/:id" element={<Article />} />
+          <Route path="/profile/:username" element={<Profile />} />
+          <Route path="/profile/:id/" element={<Profile />} />
+          <Route path="/search" element={<SearchResults />} />
+          <Route
+            path="/write"
+            element={
+              <PrivateRoute>
+                <Writer />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/edit/:id"
+            element={
+              <PrivateRoute>
+                <EditArticle />
+              </PrivateRoute>
+            }
+          />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/google-success" element={<GoogleSuccess />} />
+          <Route path="/saved" element={<Saved />} />
+          <Route path="/edit-profile" element={<EditProfile />} />
+          <Route path="/settings" element={<Settings />} />
+          <Route path="/verify/:token" element={<VerifyEmail />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/reset-password/:token" element={<ResetPassword />} />
+        </Routes>
+      </main>
+      {!hideChrome && <Footer />}
+    </div>
   );
 }
 

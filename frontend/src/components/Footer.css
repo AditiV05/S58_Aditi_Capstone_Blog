@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500&family=Inter:wght@400&display=swap");
+
+.site-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 28px 24px 40px;
+  border-top: 0.5px solid #ededed;
+}
+
+.footer-mark {
+  font-family: "Fraunces", serif;
+  font-size: 17px;
+  font-weight: 500;
+  color: #242424;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+
+.footer-note {
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  color: #999;
+}
